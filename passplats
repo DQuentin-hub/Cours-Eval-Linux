@@ -1,17 +1,5 @@
 #!/bin/bash
 
-search_dir="tmp/in"
+gzip -r tmp/in
 
-for entry in "$search_dir"/*
-do
-
-  filename= basename $entry
-
-  tar -zcvf $filename.tar.gz $entry
-  mv $filename.tar.gz tmp/out
-
-done
-
-
-
-
+mv tmp/in/* tmp/out
