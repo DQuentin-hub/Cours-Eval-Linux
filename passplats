@@ -1,5 +1,15 @@
 #!/bin/bash
 
-gzip -r tmp/in
+search_dir="tmp/in"
 
-mv tmp/in/* tmp/out
+for file in "$search_dir";
+do
+  if [-f tmp/in/running.lock]; then
+  	exit 22
+  else
+  	touch running.lock
+  	gzip -r tmp/in
+  	mv tmp/in/* tmp/out
+  	rm running.lock
+  fi
+done
