@@ -4,7 +4,7 @@ search_dir="tmp/in"
 
 for file in "$search_dir";
 do
-  if [-f tmp/in/running.lock]; then
+  if [ -f tmp/in/running.lock ]; then
   	exit 22
   else
   	touch running.lock
